@@ -1,0 +1,5 @@
+---
+type: about
+---
+
+About me.

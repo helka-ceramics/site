@@ -1,0 +1,37 @@
+{
+  "name": "helka-site",
+  "description": "Helka Site",
+  "version": "1.0.0",
+  "author": "Julien Falxa",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "gatsby develop -H 0.0.0.0",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.7",
+    "gatsby": "^2.1.22",
+    "gatsby-plugin-emotion": "^4.0.4",
+    "gatsby-plugin-netlify-cms": "^3.0.12",
+    "gatsby-plugin-netlify-cms-paths": "^1.2.1",
+    "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-sharp": "^2.0.24",
+    "gatsby-remark-external-links": "0.0.4",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-remark": "^2.3.0",
+    "gatsby-transformer-sharp": "^2.1.15",
+    "netlify-cms": "^2.5.1",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0",
+    "react-systyle": "^0.2.16"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-react": "^7.12.4"
+  }
+}

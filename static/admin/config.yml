@@ -1,0 +1,31 @@
+backend:
+  name: test-repo
+
+media_folder: static/assets
+public_folder: /assets
+
+collections:
+  - name: pages
+    label: Pages
+    editor:
+      preview: false
+    files:
+      - label: Gallery
+        name: gallery
+        file: content/gallery.md
+
+        fields:
+          - { label: type, name: type, widget: hidden, default: gallery }
+          - label: Pictures
+            name: pictures
+            widget: list
+            fields:
+              - { label: Image, name: image, widget: image }
+              - { label: Description, name: description, widget: text }
+
+      - label: 'About Page'
+        name: about
+        file: content/about.md
+        fields:
+          - { label: type, name: type, widget: hidden, default: about }
+          - { label: Body, name: body, widget: markdown }

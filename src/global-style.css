@@ -1,0 +1,16 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html * {
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+#___gatsby {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
