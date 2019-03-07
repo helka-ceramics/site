@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Helka'
+    title: 'Gallery'
   },
 
   plugins: [
