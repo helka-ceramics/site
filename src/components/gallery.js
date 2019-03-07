@@ -2,6 +2,7 @@ import React from 'react'
 
 import Box from '../system/box'
 import Nav from './nav'
+import HotKeys from './hotkeys'
 
 function scrollX({ index = 0, ...props }) {
   return {
@@ -40,18 +41,25 @@ class Gallery extends React.Component {
 
   next = () => this.scrollTo(this.index + 1)
 
+  hotkeys = {
+    ArrowLeft: this.previous,
+    ArrowRight: this.next
+  }
+
   render() {
     return (
-      <Container onMouseLeave={this.hideHint}>
-        <Scrollable {...this.props} index={this.index} />
+      <HotKeys keys={this.hotkeys}>
+        <Container>
+          <Scrollable {...this.props} index={this.index} />
 
-        <Nav
-          index={this.index}
-          size={this.size}
-          onPrevious={this.previous}
-          onNext={this.next}
-        />
-      </Container>
+          <Nav
+            index={this.index}
+            size={this.size}
+            onPrevious={this.previous}
+            onNext={this.next}
+          />
+        </Container>
+      </HotKeys>
     )
   }
 }
