@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Theme from '../system/theme'
+import Global from '../system/global'
 import Box from '../system/box'
 
 const titleQuery = graphql`
@@ -32,6 +33,7 @@ const Layout = props => {
 
   return (
     <Theme>
+      <Global />
       <Helmet title={title} />
       <Main {...props} />
     </Theme>
