@@ -6,11 +6,4 @@ body {
 
 html * {
   box-sizing: border-box;
-  letter-spacing: 1px;
-}
-
-#___gatsby {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
