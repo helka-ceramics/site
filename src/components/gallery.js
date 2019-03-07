@@ -4,21 +4,19 @@ import Box from '../system/box'
 import Nav from './nav'
 import HotKeys from './hotkeys'
 
-function scrollX({ index = 0, ...props }) {
-  return {
-    ...props,
-
-    style: { transform: `translate3d(-${index * 100}%, 0, 0)` },
-
-    willChange: 'transform',
-    transition: 'transform 0.6s ease-in-out',
-
-    '& > *': { flex: '1 0 100%' }
-  }
-}
-
 const Container = Box.with({ position: 'relative', flex: 1 })
-const Scrollable = Box.with({ flex: 1 }).with(scrollX)
+
+const Scrollable = Box.with(({ index = 0, ...props }) => ({
+  ...props,
+
+  style: { transform: `translate3d(-${index * 100}%, 0, 0)` },
+
+  flex: 1,
+  willChange: 'transform',
+  transition: 'transform 0.6s ease-in-out',
+
+  '& > *': { flex: '1 0 100%' }
+}))
 
 class Gallery extends React.Component {
   state = {

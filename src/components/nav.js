@@ -6,17 +6,6 @@ import Img from '../system/img'
 import leftArrow from '../icons/left-arrow.svg'
 import rightArrow from '../icons/right-arrow.svg'
 
-function side({ left = false, right = false, hide = false, ...props }) {
-  return {
-    ...props,
-
-    children: <NavIcon source={left ? leftArrow : right ? rightArrow : null} />,
-
-    visibility: hide ? 'hidden' : 'visible',
-    justifyContent: left ? 'flex-start' : right ? 'flex-end' : null
-  }
-}
-
 const NavContainer = Box.as('nav').with({
   position: 'absolute',
   width: '100%',
@@ -30,20 +19,28 @@ const NavIcon = Img.with({
   height: 66
 })
 
-const NavPanel = Box.with(side).with({
-  flex: 1,
-  alignItems: 'center',
-  opacity: 0.1,
-  px: 4,
+const NavPanel = Box.with(
+  ({ left = false, right = false, hide = false, ...props }) => ({
+    ...props,
 
-  '&:hover': {
-    opacity: 0.5
-  },
+    children: <NavIcon source={left ? leftArrow : right ? rightArrow : null} />,
 
-  '&:active': {
-    opacity: 0.9
-  }
-})
+    flex: 1,
+    alignItems: 'center',
+    visibility: hide ? 'hidden' : 'visible',
+    justifyContent: left ? 'flex-start' : right ? 'flex-end' : null,
+    opacity: 0.1,
+    px: 4,
+
+    '&:hover': {
+      opacity: 0.5
+    },
+
+    '&:active': {
+      opacity: 0.9
+    }
+  })
+)
 
 const Nav = ({ index, size, onPrevious, onNext }) => (
   <NavContainer>
