@@ -10,3 +10,5 @@ export const colors = {}
 export const Theme = props => (
   <ThemeContext.Provider {...props} value={{ spacing, breakpoints, colors }} />
 )
+
+export default Theme

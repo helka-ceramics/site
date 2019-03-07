@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { Theme } from '../system/theme'
+import Theme from '../system/theme'
 import Box from '../system/box'
 
 const titleQuery = graphql`
