@@ -7,17 +7,12 @@ function scrollX({ index = 0, ...props }) {
   return {
     ...props,
 
-    willChange: 'transition',
+    style: { transform: `translate3d(-${index * 100}%, 0, 0)` },
 
-    '& > *': {
-      flex: '1 0 100%'
-    },
-
+    willChange: 'transform',
     transition: 'transform 0.6s ease-in-out',
 
-    style: {
-      transform: `translate3d(-${index * 100}%, 0, 0)`
-    }
+    '& > *': { flex: '1 0 100%' }
   }
 }
 
