@@ -15,8 +15,8 @@ const titleQuery = graphql`
   }
 `
 
-function selectTitle() {
-  return useStaticQuery(titleQuery).site.siteMetadata.title
+function selectTitle(data) {
+  return data.site.siteMetadata.title
 }
 
 const Main = Box.as('main').with({
@@ -26,11 +26,16 @@ const Main = Box.as('main').with({
   overflow: 'hidden'
 })
 
-const Layout = ({ children }) => (
-  <Theme>
-    <Helmet title={selectTitle()} />
-    <Main children={children} />
-  </Theme>
-)
+const Layout = props => {
+  const data = useStaticQuery(titleQuery)
+  const title = selectTitle(data)
+
+  return (
+    <Theme>
+      <Helmet title={title} />
+      <Main {...props} />
+    </Theme>
+  )
+}
 
 export default Layout

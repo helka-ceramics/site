@@ -3,6 +3,7 @@ import Styled from 'react-systyle'
 import GatsbyImage from 'gatsby-image'
 
 import Box from '../system/box'
+import Txt from '../system/txt'
 
 const Container = Box.with({
   display: 'flex',
@@ -15,7 +16,7 @@ const Img = Styled.as(GatsbyImage).with({
   imgStyle: { objectFit: 'contain' }
 })
 
-const Description = Styled.as('span').with({
+const Description = Txt.with({
   flexShrink: 0,
   textAlign: 'center',
   p: 1
