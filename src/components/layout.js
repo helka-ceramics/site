@@ -1,8 +1,23 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import Theme from '../system/theme'
+import { Theme } from '../system/theme'
 import Box from '../system/box'
+
+const titleQuery = graphql`
+  query TitleQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+
+function selectTitle() {
+  return useStaticQuery(titleQuery).site.siteMetadata.title
+}
 
 const Main = Box.as('main').with({
   flexDirection: 'column',
@@ -11,9 +26,9 @@ const Main = Box.as('main').with({
   overflow: 'hidden'
 })
 
-const Layout = ({ title, children }) => (
+const Layout = ({ children }) => (
   <Theme>
-    <Helmet title={title} />
+    <Helmet title={selectTitle()} />
     <Main children={children} />
   </Theme>
 )

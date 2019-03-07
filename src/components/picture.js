@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled from 'react-systyle'
 import GatsbyImage from 'gatsby-image'
+
 import Box from '../system/box'
 
 const Container = Box.with({

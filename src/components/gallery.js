@@ -45,27 +45,6 @@ class Gallery extends React.Component {
 
   next = () => this.scrollTo(this.index + 1)
 
-  handleScroll = e => {
-    const direction = e.pageX < window.innerWidth / 2 ? -1 : +1
-    const target = this.index + direction
-
-    this.scrollTo(target)
-  }
-
-  handleMove = e => {
-    this.setState({
-      x: e.pageX,
-      y: e.pageY
-    })
-  }
-
-  hideHint = () => {
-    this.setState({
-      x: -1000,
-      y: -1000
-    })
-  }
-
   render() {
     return (
       <Container onMouseLeave={this.hideHint}>
