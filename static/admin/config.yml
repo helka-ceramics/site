@@ -41,8 +41,13 @@ collections:
             name: pictures
             widget: list
             fields:
-              - { label: Image, name: image, widget: image }
-              - { label: Description, name: description, widget: text }
+              - label: Image
+                name: image
+                widget: image
+              - label: Description
+                name: description
+                widget: string
+                required: false
 
           - label: Footer
             name: body
