@@ -1,6 +1,6 @@
 {
-  "name": "gallery",
-  "description": "Gallery",
+  "name": "helka-ceramics",
+  "description": "Helk ceramics",
   "version": "1.0.0",
   "author": "Julien Falxa",
   "keywords": [
@@ -25,6 +25,7 @@
     "gatsby-transformer-remark": "^2.3.0",
     "gatsby-transformer-sharp": "^2.1.15",
     "netlify-cms": "^2.5.1",
+    "netlify-cms-widget-native-color": "^3.0.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",

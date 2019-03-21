@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gallery'
+    title: 'Helka ceramics'
   },
 
   plugins: [
@@ -32,7 +32,13 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        enableIdentityWidget: true,
+        modulePath: `${__dirname}/src/cms/cms.js`
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion'
   ]

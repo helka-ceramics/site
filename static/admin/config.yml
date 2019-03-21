@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: helka-ceramics/site
 
 media_folder: static/assets
 public_folder: /assets
@@ -7,15 +8,35 @@ public_folder: /assets
 collections:
   - name: pages
     label: Pages
+
     editor:
       preview: false
+
     files:
       - label: Gallery
         name: gallery
         file: content/gallery.md
 
         fields:
-          - { label: type, name: type, widget: hidden, default: gallery }
+          - name: type
+            widget: hidden
+            default: gallery
+
+          - label: Colors
+            name: colors
+            widget: object
+
+            fields:
+              - label: Background
+                name: background
+                widget: native-color
+                default: '#FCEDD9'
+
+              - label: Text
+                name: text
+                widget: native-color
+                default: '#2F3490'
+
           - label: Pictures
             name: pictures
             widget: list
@@ -23,9 +44,6 @@ collections:
               - { label: Image, name: image, widget: image }
               - { label: Description, name: description, widget: text }
 
-      - label: 'About Page'
-        name: about
-        file: content/about.md
-        fields:
-          - { label: type, name: type, widget: hidden, default: about }
-          - { label: Body, name: body, widget: markdown }
+          - label: Footer
+            name: body
+            widget: markdown

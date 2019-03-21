@@ -1,52 +1,49 @@
 import React from 'react'
-
 import Box from '../system/box'
-import Img from '../system/img'
 
 import leftArrow from '../icons/left-arrow.svg'
 import rightArrow from '../icons/right-arrow.svg'
 
-const NavContainer = Box.as('nav').with({
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  cursor: 'pointer',
-  userSelect: 'none'
-})
+const NavContainer = Box.with(({ left, ...props }) => ({
+  ...props,
+  cursor: `url(${left ? leftArrow : rightArrow}), auto`
+}))
 
-const NavIcon = Img.with({
-  width: 66,
-  height: 66
-})
+class Nav extends React.Component {
+  state = {
+    left: false
+  }
 
-const NavPanel = Box.with(
-  ({ left = false, right = false, hide = false, ...props }) => ({
-    ...props,
+  computePosition = e => {
+    if (typeof window === undefined) return
 
-    children: <NavIcon source={left ? leftArrow : right ? rightArrow : null} />,
+    const left = e.pageX < window.innerWidth / 2
 
-    flex: 1,
-    alignItems: 'center',
-    visibility: hide ? 'hidden' : 'visible',
-    justifyContent: left ? 'flex-start' : right ? 'flex-end' : null,
-    opacity: 0.1,
-    px: 4,
-
-    '&:hover': {
-      opacity: 0.5
-    },
-
-    '&:active': {
-      opacity: 0.9
+    if (this.state.left !== left) {
+      this.setState({ left })
     }
-  })
-)
+  }
 
-const Nav = ({ index, size, onPrevious, onNext }) => (
-  <NavContainer>
-    <NavPanel left hide={index === 0} onClick={onPrevious} />
-    <NavPanel right hide={index === size - 1} onClick={onNext} />
-  </NavContainer>
-)
+  navigate = () => {
+    const { onNavigate } = this.props
+    const { left } = this.state
+
+    onNavigate(left ? -1 : +1)
+  }
+
+  render() {
+    const { onNavigate, ...props } = this.props
+    const { left } = this.state
+
+    return (
+      <NavContainer
+        {...props}
+        left={left}
+        onClick={this.navigate}
+        onMouseMove={this.computePosition}
+      />
+    )
+  }
+}
 
 export default Nav

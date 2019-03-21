@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Theme from '../system/theme'
 import Global from '../system/global'
 import Box from '../system/box'
+import Markdown from './markdown'
 
 const titleQuery = graphql`
   query TitleQuery {
@@ -13,29 +14,59 @@ const titleQuery = graphql`
         title
       }
     }
+
+    markdownRemark(frontmatter: { type: { eq: "gallery" } }) {
+      html
+
+      frontmatter {
+        colors {
+          background
+          text
+        }
+      }
+    }
   }
 `
 
-function selectTitle(data) {
-  return data.site.siteMetadata.title
+function selectLayout(data) {
+  return {
+    title: data.site.siteMetadata.title,
+    colors: data.markdownRemark.frontmatter.colors,
+    footer: data.markdownRemark.html
+  }
 }
 
-const Main = Box.as('main').with({
+const Screen = Box.with({
   flexDirection: 'column',
   width: '100vw',
   height: '100vh',
   overflow: 'hidden'
 })
 
-const Layout = props => {
+const Main = Box.as('main').with({
+  flex: 1,
+  flexDirection: 'column',
+  justifyContent: 'center'
+})
+
+const Footer = Markdown.as('footer').with({
+  textAlign: 'center',
+  size: 'S'
+})
+
+const Layout = ({ children }) => {
   const data = useStaticQuery(titleQuery)
-  const title = selectTitle(data)
+  const layout = selectLayout(data)
 
   return (
     <Theme>
       <Global />
-      <Helmet title={title} />
-      <Main {...props} />
+      <Helmet title={layout.title} />
+
+      <Screen bg={layout.colors.background} color={layout.colors.text}>
+        <Main>{children}</Main>
+        <Footer html={layout.footer} />
+      </Screen>
     </Theme>
   )
 }

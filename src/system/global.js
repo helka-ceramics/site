@@ -8,7 +8,8 @@ const styles = {
   },
 
   'html *': {
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    fontFamily: 'Helvetica'
   }
 }
 

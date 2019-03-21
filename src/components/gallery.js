@@ -1,28 +1,11 @@
 import React from 'react'
 
-import Box from '../system/box'
+import Picture from './picture'
 import Nav from './nav'
-import HotKeys from './hotkeys'
-
-const Container = Box.with({ position: 'relative', flex: 1 })
-
-const Scrollable = Box.with(({ index = 0, ...props }) => ({
-  ...props,
-
-  style: { transform: `translate3d(-${index * 100}%, 0, 0)` },
-
-  flex: 1,
-  willChange: 'transform',
-  transition: 'transform 0.6s ease-in-out',
-
-  '& > *': { flex: '1 0 100%' }
-}))
 
 class Gallery extends React.Component {
   state = {
-    index: 0,
-    x: 0,
-    y: 0
+    index: 0
   }
 
   get index() {
@@ -30,34 +13,19 @@ class Gallery extends React.Component {
   }
 
   get size() {
-    return React.Children.count(this.props.children)
+    return this.props.pictures.length
   }
 
-  scrollTo = index => this.setState({ index: (this.size + index) % this.size })
-
-  previous = () => this.scrollTo(this.index - 1)
-
-  next = () => this.scrollTo(this.index + 1)
-
-  hotkeys = {
-    ArrowLeft: this.previous,
-    ArrowRight: this.next
-  }
+  navigate = direction =>
+    this.setState({ index: (this.size + this.index + direction) % this.size })
 
   render() {
-    return (
-      <HotKeys keys={this.hotkeys}>
-        <Container>
-          <Scrollable {...this.props} index={this.index} />
+    const { id, image, description } = this.props.pictures[this.index]
 
-          <Nav
-            index={this.index}
-            size={this.size}
-            onPrevious={this.previous}
-            onNext={this.next}
-          />
-        </Container>
-      </HotKeys>
+    return (
+      <Nav onNavigate={this.navigate}>
+        <Picture key={id} image={image} description={description} m="12%" />
+      </Nav>
     )
   }
 }
