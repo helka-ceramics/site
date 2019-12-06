@@ -52,3 +52,16 @@ collections:
           - label: Footer
             name: body
             widget: markdown
+
+      - label: Imprint
+        name: imprint
+        file: content/imprint.md
+
+        fields:
+          - name: type
+            widget: hidden
+            default: imprint
+
+          - label: Content
+            name: body
+            widget: markdown
