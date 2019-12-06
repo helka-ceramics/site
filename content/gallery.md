@@ -14,6 +14,9 @@ pictures:
     image: /assets/6.jpg
   - description: ''
     image: /assets/11.jpg
+  - image: /assets/daniel-faro_dts_7s0a4793_highres_od.jpg
+  - image: /assets/daniel-faro_dts_7s0a5064_highres_od.jpg
+  - image: /assets/daniel-faro_dts_7s0a5319_highres_od.jpg
+  - image: /assets/daniel-faro_dts_7s0a5456_highres_od.jpg
 ---
-
-[HELKA](/) | CERAMIC PIECES MADE BY LISA KOSAK | WARTHESTRASSE 68 | 12051 | BERLIN | PHONE: 0049 177 42 90 382 | MAIL: [KOSAK.LISA@GMAIL.COM](<mailto: kosak.lisa@gmail.com>) | [INSTAGRAM](https://www.instagram.com/helkagram) | [IMPRINT](/imprint)
+HELKA | CERAMIC PIECES MADE BY LISA KOSAK | WARTHESTRASSE 68 | 12051 | BERLIN | PHONE: 0049 177 42 90 382 | MAIL: [KOSAK.LISA@GMAIL.COM](<mailto: kosak.lisa@gmail.com>) | [INSTAGRAM](https://www.instagram.com/helkagram) | IMPRINT
