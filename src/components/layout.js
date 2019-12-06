@@ -45,13 +45,15 @@ const Screen = Box.with({
 
 const Main = Box.as('main').with({
   flex: 1,
+  height: '100%',
   flexDirection: 'column',
   justifyContent: 'center'
 })
 
 const Footer = Markdown.as('footer').with({
   textAlign: 'center',
-  size: 'S'
+  size: 'S',
+  flexShrink: 0
 })
 
 const Layout = ({ children }) => {

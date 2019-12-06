@@ -1,17 +1,13 @@
-import GatsbyImage from 'gatsby-image'
+import React from 'react'
 import Styled from 'react-systyle'
 
-const Picture = Styled.as(GatsbyImage).with(
-  ({ image, description, ...props }) => ({
-    ...props,
+const img = ({ image, ...props }) => <img {...props} src={image.src} />
 
-    fluid: image,
-    title: description,
-
-    flex: 1,
-    imgStyle: { objectFit: 'contain' },
-    pointerEvents: 'none'
-  })
-)
+const Picture = Styled.as(img).with({
+  objectFit: 'contain',
+  pointerEvents: 'none',
+  maxWidth: '75%',
+  maxHeight: '75%'
+})
 
 export default Picture

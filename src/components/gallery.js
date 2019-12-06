@@ -24,7 +24,7 @@ class Gallery extends React.Component {
 
     return (
       <Nav onNavigate={this.navigate}>
-        <Picture key={id} image={image} description={description} m="12%" />
+        <Picture key={id} image={image} title={description} />
       </Nav>
     )
   }

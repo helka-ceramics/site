@@ -6,7 +6,10 @@ import rightArrow from '../icons/right-arrow.svg'
 
 const NavContainer = Box.with(({ left, ...props }) => ({
   ...props,
-  cursor: `url(${left ? leftArrow : rightArrow}), auto`
+  height: '100%',
+  cursor: `url(${left ? leftArrow : rightArrow}), auto`,
+  justifyContent: 'center',
+  alignItems: 'center'
 }))
 
 class Nav extends React.Component {
