@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => {
   const index = selectIndex(data)
 
   return (
-    <Layout>
+    <Layout height="100%">
       <Gallery pictures={index.pictures} />
     </Layout>
   )

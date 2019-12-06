@@ -40,12 +40,11 @@ const Screen = Box.with({
   flexDirection: 'column',
   width: '100vw',
   height: '100vh',
-  overflow: 'hidden'
+  overflow: 'auto'
 })
 
 const Main = Box.as('main').with({
   flex: 1,
-  height: '100%',
   flexDirection: 'column',
   justifyContent: 'center'
 })
@@ -56,7 +55,7 @@ const Footer = Markdown.as('footer').with({
   flexShrink: 0
 })
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...props }) => {
   const data = useStaticQuery(titleQuery)
   const layout = selectLayout(data)
 
@@ -66,7 +65,7 @@ const Layout = ({ children }) => {
       <Helmet title={layout.title} />
 
       <Screen bg={layout.colors.background} color={layout.colors.text}>
-        <Main>{children}</Main>
+        <Main {...props}>{children}</Main>
         <Footer html={layout.footer} />
       </Screen>
     </Theme>

@@ -7,7 +7,8 @@ const Picture = Styled.as(img).with({
   objectFit: 'contain',
   pointerEvents: 'none',
   maxWidth: '75%',
-  maxHeight: '75%'
+  maxHeight: '75%',
+  userSelect: 'none'
 })
 
 export default Picture
