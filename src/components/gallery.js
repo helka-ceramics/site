@@ -23,7 +23,7 @@ class Gallery extends React.Component {
     const { id, image, description } = this.props.pictures[this.index]
 
     return (
-      <Nav onNavigate={this.navigate}>
+      <Nav background={this.props.background} onNavigate={this.navigate}>
         <Picture key={id} image={image} title={description} />
       </Nav>
     )

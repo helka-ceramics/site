@@ -1,15 +1,17 @@
 import React from 'react'
 import Box from '../system/box'
 
-import leftArrow from '../icons/left-arrow.svg'
-import rightArrow from '../icons/right-arrow.svg'
+import arrow from '../icons/arrows'
+// import leftArrow from '../icons/left-arrow.svg'
+// import rightArrow from '../icons/right-arrow.svg'
 
-const NavContainer = Box.with(({ left, ...props }) => ({
-  ...props,
+const NavContainer = Box.with({
   height: '100%',
-  cursor: `url(${left ? leftArrow : rightArrow}), auto`,
   justifyContent: 'center',
   alignItems: 'center'
+}).with(({ left, background, ...props }) => ({
+  ...props,
+  cursor: `url(${arrow(left, background)}), auto`
 }))
 
 class Nav extends React.Component {

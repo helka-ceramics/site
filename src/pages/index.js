@@ -8,6 +8,10 @@ export const query = graphql`
   query IndexQuery {
     markdownRemark(frontmatter: { type: { eq: "gallery" } }) {
       frontmatter {
+        colors {
+          background
+        }
+
         pictures {
           description
 
@@ -27,7 +31,7 @@ export const query = graphql`
 `
 
 function selectIndex(data) {
-  const footer = data.markdownRemark.html
+  const background = data.markdownRemark.frontmatter.colors.background
 
   const pictures = data.markdownRemark.frontmatter.pictures.map(pic => ({
     id: pic.image.id,
@@ -35,7 +39,7 @@ function selectIndex(data) {
     description: pic.description
   }))
 
-  return { footer, pictures }
+  return { pictures, background }
 }
 
 const IndexPage = ({ data }) => {
@@ -43,7 +47,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout height="100%">
-      <Gallery pictures={index.pictures} />
+      <Gallery background={index.background} pictures={index.pictures} />
     </Layout>
   )
 }
