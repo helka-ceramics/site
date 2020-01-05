@@ -6,12 +6,13 @@ import arrow from '../icons/arrows'
 // import rightArrow from '../icons/right-arrow.svg'
 
 const NavContainer = Box.with({
-  height: '100%',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignSelf: 'center',
+  maxWidth: '75%',
+  maxHeight: '75%'
 }).with(({ left, background, ...props }) => ({
   ...props,
-  cursor: `url(${arrow(left, background)}), auto`
+  cursor: `url(${arrow(left, background)}) 24 24, auto`
 }))
 
 class Nav extends React.Component {

@@ -46,7 +46,8 @@ const Screen = Box.with({
 const Main = Box.as('main').with({
   flex: 1,
   flexDirection: 'column',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  overflow: 'hidden'
 })
 
 const Footer = Markdown.as('footer').with({

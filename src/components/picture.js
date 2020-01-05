@@ -1,13 +1,14 @@
 import React from 'react'
 import Styled from 'react-systyle'
 
-const img = ({ image, ...props }) => <img {...props} src={image.src} />
+const img = ({ image, ...props }) => (
+  <img x={console.log({ image })} {...props} src={image.src} />
+)
 
 const Picture = Styled.as(img).with({
-  objectFit: 'contain',
+  maxWidth: '100%',
+  maxHeight: '100%',
   pointerEvents: 'none',
-  maxWidth: '75%',
-  maxHeight: '75%',
   userSelect: 'none'
 })
 
