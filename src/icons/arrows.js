@@ -16,5 +16,6 @@ const svg = (path, color) =>
 
 // generate a data-uri for the wanted arrow svg
 export default function arrow(isLeft, color = 'black') {
+  if (typeof window === 'undefined') return null
   return 'data:image/svg+xml;base64,' + btoa(svg(isLeft ? left : right, color))
 }
