@@ -18,6 +18,14 @@ class Nav extends React.Component {
     left: false
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', this.navigateKeyboard)
+  }
+
+  componentDidUnmount() {
+    document.removeEventListener('keydown', this.navigateKeyboard)
+  }
+
   computePosition = e => {
     if (typeof window === undefined) return
 
@@ -33,6 +41,16 @@ class Nav extends React.Component {
     const { left } = this.state
 
     onNavigate(left ? -1 : +1)
+  }
+
+  navigateKeyboard = e => {
+    const { onNavigate } = this.props
+
+    if (e.key === 'ArrowRight') {
+      onNavigate(1)
+    } else if (e.key === 'ArrowLeft') {
+      onNavigate(-1)
+    }
   }
 
   render() {
