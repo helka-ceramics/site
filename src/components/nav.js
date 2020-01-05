@@ -2,8 +2,6 @@ import React from 'react'
 import Box from '../system/box'
 
 import arrow from '../icons/arrows'
-// import leftArrow from '../icons/left-arrow.svg'
-// import rightArrow from '../icons/right-arrow.svg'
 
 const NavContainer = Box.with({
   justifyContent: 'center',
@@ -38,6 +36,7 @@ class Nav extends React.Component {
   }
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const { onNavigate, ...props } = this.props
     const { left } = this.state
 
