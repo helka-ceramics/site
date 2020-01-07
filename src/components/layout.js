@@ -53,7 +53,11 @@ const Main = Box.as('main').with({
 const Footer = Markdown.as('footer').with({
   textAlign: 'center',
   size: 'S',
-  flexShrink: 0
+  flexShrink: 0,
+
+  '& a': {
+    textDecoration: 'none'
+  }
 })
 
 const Layout = ({ children, ...props }) => {
