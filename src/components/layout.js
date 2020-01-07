@@ -57,6 +57,10 @@ const Footer = Markdown.as('footer').with({
 
   '& a': {
     textDecoration: 'none'
+  },
+
+  '& a:hover': {
+    textDecoration: 'underline'
   }
 })
 
