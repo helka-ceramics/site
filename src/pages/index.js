@@ -25,29 +25,56 @@ export const query = graphql`
             }
           }
         }
+
+        mobilePictures {
+          description
+
+          image {
+            id
+
+            childImageSharp {
+              fluid(maxWidth: 1024) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }
 `
 
-function selectIndex(data) {
-  const background = data.markdownRemark.frontmatter.colors.background
+function isMobile() {
+  return typeof window !== 'undefined' && window.innerWidth <= 600
+}
 
-  const pictures = data.markdownRemark.frontmatter.pictures.map(pic => ({
-    id: pic.image.id,
-    image: pic.image.childImageSharp.fluid,
-    description: pic.description
+function selectBackground(data) {
+  return data.markdownRemark.frontmatter.colors.background
+}
+
+function selectPictures(data) {
+  const desktopPictures = data.markdownRemark.frontmatter.pictures
+  const mobilePictures = data.markdownRemark.frontmatter.mobilePictures
+
+  const pictures =
+    isMobile() && mobilePictures && mobilePictures.length > 0
+      ? mobilePictures
+      : desktopPictures
+
+  return pictures.map(picture => ({
+    id: picture.image.id,
+    image: picture.image.childImageSharp.fluid,
+    description: picture.description
   }))
-
-  return { pictures, background }
 }
 
 const IndexPage = ({ data }) => {
-  const index = selectIndex(data)
+  const background = selectBackground(data)
+  const pictures = selectPictures(data)
 
   return (
     <Layout height="100%">
-      <Gallery background={index.background} pictures={index.pictures} />
+      <Gallery background={background} pictures={pictures} />
     </Layout>
   )
 }

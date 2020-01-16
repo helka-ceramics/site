@@ -37,8 +37,21 @@ collections:
                 widget: native-color
                 default: '#2F3490'
 
-          - label: Pictures
+          - label: Desktop Pictures
             name: pictures
+            widget: list
+            fields:
+              - label: Image
+                name: image
+                widget: image
+              - label: Description
+                name: description
+                widget: string
+                default: ''
+                required: false
+
+          - label: Mobile Pictures
+            name: mobilePictures
             widget: list
             fields:
               - label: Image

@@ -22,7 +22,7 @@ class Nav extends React.Component {
     document.addEventListener('keydown', this.navigateKeyboard)
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     document.removeEventListener('keydown', this.navigateKeyboard)
   }
 
