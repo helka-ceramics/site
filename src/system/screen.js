@@ -7,6 +7,7 @@ const DynamicHeight = props => {
 
   useEffect(() => {
     setTimeout(() => setHeight(window.innerHeight + 'px'), 0)
+    window.onresize = () => setHeight(window.innerHeight + 'px')
   }, [])
 
   return <div {...props} style={{ height }} />
