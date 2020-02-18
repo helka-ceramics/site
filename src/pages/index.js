@@ -73,9 +73,13 @@ const IndexPage = ({ data }) => {
   const background = selectBackground(data)
 
   useEffect(() => {
+    let updatePictures = () => setPictures(selectPictures(data))
+
     // set pictures in a timeout to avoid SSR
-    setTimeout(() => setPictures(selectPictures(data)), 0)
-    window.onresize = () => setPictures(selectPictures(data))
+    setTimeout(updatePictures, 0)
+    window.addEventListener('resize', updatePictures)
+
+    return () => window.removeEventListener('resize', updatePictures)
   }, [])
 
   return (

@@ -6,8 +6,12 @@ const DynamicHeight = props => {
   const [height, setHeight] = useState('100vh') // 100vh is fucked on mobile
 
   useEffect(() => {
-    setTimeout(() => setHeight(window.innerHeight + 'px'), 0)
-    window.onresize = () => setHeight(window.innerHeight + 'px')
+    let updateHeight = () => setHeight(window.innerHeight + 'px')
+
+    setTimeout(updateHeight, 0)
+    window.addEventListener('resize', updateHeight)
+
+    return () => window.removeEventListener('resize', updateHeight)
   }, [])
 
   return <div {...props} style={{ height }} />
