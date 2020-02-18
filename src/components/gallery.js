@@ -20,6 +20,8 @@ class Gallery extends React.Component {
     this.setState({ index: (this.size + this.index + direction) % this.size })
 
   render() {
+    if (!this.props.pictures[this.index]) return null
+
     const { id, image, description } = this.props.pictures[this.index]
 
     return (

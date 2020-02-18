@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Theme from '../system/theme'
 import Global from '../system/global'
 import Box from '../system/box'
+import Screen from '../system/screen'
 import Markdown from './markdown'
 
 const titleQuery = graphql`
@@ -35,13 +36,6 @@ function selectLayout(data) {
     footer: data.markdownRemark.html
   }
 }
-
-const Screen = Box.with({
-  flexDirection: 'column',
-  width: '100vw',
-  height: '100vh',
-  overflow: 'auto'
-})
 
 const Main = Box.as('main').with({
   flex: 1,

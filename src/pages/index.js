@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
@@ -69,8 +69,13 @@ function selectPictures(data) {
 }
 
 const IndexPage = ({ data }) => {
+  const [pictures, setPictures] = useState([])
   const background = selectBackground(data)
-  const pictures = selectPictures(data)
+
+  useEffect(() => {
+    // set pictures in a timeout to avoid SSR
+    setTimeout(() => setPictures(selectPictures(data)), 0)
+  }, [])
 
   return (
     <Layout height="100%">
