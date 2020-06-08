@@ -1,4 +1,5 @@
 import db from '~/db.json'
+import { moveIndex, saveInterval, adaptPictures } from './actions'
 
 export function carousel({ state, action }) {
   if (state.gallery.interval) {
