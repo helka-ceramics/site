@@ -1,8 +1,8 @@
 # Project dependencies
-.cache
+.parcel-cache
 node_modules
-yarn-error.log
 
 # Build directory
-/public
+/dist
+db.json
 .DS_Store

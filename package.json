@@ -1,39 +1,24 @@
 {
   "name": "helka-ceramics",
-  "description": "Helk ceramics",
+  "description": "Helka ceramics",
   "version": "1.0.0",
   "author": "Julien Falxa",
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
-    "start": "gatsby develop -H 0.0.0.0",
-    "build": "gatsby build"
+    "start": "make start",
+    "build": "make"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "gatsby": "^2.18.23",
-    "gatsby-image": "^2.2.38",
-    "gatsby-plugin-emotion": "^4.1.21",
-    "gatsby-plugin-netlify-cms": "^4.1.37",
-    "gatsby-plugin-netlify-cms-paths": "^1.3.0",
-    "gatsby-plugin-react-helmet": "^3.1.21",
-    "gatsby-plugin-sharp": "^2.3.13",
-    "gatsby-remark-external-links": "0.0.4",
-    "gatsby-source-filesystem": "^2.1.46",
-    "gatsby-transformer-remark": "^2.6.48",
-    "gatsby-transformer-sharp": "^2.3.12",
-    "netlify-cms": "^2.10.8",
-    "netlify-cms-widget-native-color": "^3.0.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "react-systyle": "^0.3.1"
+    "ramda": "^0.27.0",
+    "stitchz": "^0.1.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.18.0"
+    "fast-glob": "^3.2.2",
+    "front-matter": "^4.0.2",
+    "marked": "^1.1.0",
+    "parcel": "^2.0.0-nightly.284",
+    "pressrun": "^0.2.0",
+    "serve": "^11.3.2",
+    "sharp": "^0.25.3"
   }
 }
