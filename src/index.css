@@ -1,3 +1,9 @@
+:root {
+  --text-color: initial;
+  --background-color: initial;
+  --arrow-shape: initial;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,6 +13,13 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
+}
+
+body {
+  color: #2f3490;
+  color: var(--text-color);
+  background-color: #fcedd9;
+  background-color: var(--background-color);
 }
 
 div#root {
@@ -19,14 +32,17 @@ div#root {
 main.gallery {
   display: flex;
   flex: 1;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  -moz-user-select: none;
+  overflow: hidden;
+  cursor: var(--arrow-shape);
 }
 
 main.gallery img.picture {
   max-width: 75%;
   max-height: 75%;
+  user-select: none;
   pointer-events: none;
 }
 
