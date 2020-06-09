@@ -2,8 +2,8 @@ backend:
   name: github
   repo: helka-ceramics/site
 
-media_folder: static/assets
-public_folder: /assets
+media_folder: assets/images
+public_folder: /images
 
 collections:
   - name: pages
@@ -18,9 +18,10 @@ collections:
         file: content/gallery.md
 
         fields:
-          - name: type
-            widget: hidden
-            default: gallery
+          - label: Time between pictures
+            name: interval
+            widget: number
+            default: 5
 
           - label: Colors
             name: colors
@@ -72,10 +73,6 @@ collections:
         file: content/imprint.md
 
         fields:
-          - name: type
-            widget: hidden
-            default: imprint
-
           - label: Content
             name: body
             widget: markdown
