@@ -1,0 +1,78 @@
+backend:
+  name: github
+  repo: helka-ceramics/site
+
+media_folder: assets/images
+public_folder: /images
+
+collections:
+  - name: pages
+    label: Pages
+
+    editor:
+      preview: false
+
+    files:
+      - label: Gallery
+        name: gallery
+        file: content/gallery.md
+
+        fields:
+          - label: Time between pictures
+            name: interval
+            widget: number
+            default: 5
+
+          - label: Colors
+            name: colors
+            widget: object
+
+            fields:
+              - label: Background
+                name: background
+                widget: native-color
+                default: '#FCEDD9'
+
+              - label: Text
+                name: text
+                widget: native-color
+                default: '#2F3490'
+
+          - label: Desktop Pictures
+            name: pictures
+            widget: list
+            fields:
+              - label: Image
+                name: image
+                widget: image
+              - label: Description
+                name: description
+                widget: string
+                default: ''
+                required: false
+
+          - label: Mobile Pictures
+            name: mobilePictures
+            widget: list
+            fields:
+              - label: Image
+                name: image
+                widget: image
+              - label: Description
+                name: description
+                widget: string
+                default: ''
+                required: false
+
+          - label: Footer
+            name: body
+            widget: markdown
+
+      - label: Imprint
+        name: imprint
+        file: content/imprint.md
+
+        fields:
+          - label: Content
+            name: body
+            widget: markdown

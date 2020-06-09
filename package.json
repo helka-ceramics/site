@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Julien Falxa",
   "license": "MIT",
+  "main": "public/index.html",
   "scripts": {
     "start": "make start",
     "build": "make"

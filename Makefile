@@ -4,13 +4,14 @@ build:
 	make images
 	make bundle
 	make html
+	make netlifycms
 
 start:
-	npx parcel src/index.html
+	npx parcel src/index.html src/cms/index.html
 
 clean:
-	rm -rf dist
-	mkdir dist
+	rm -rf public
+	mkdir public
 
 db:
 	node ./scripts/generate-database.js
@@ -22,7 +23,10 @@ bundle:
 	npx parcel build src/index.html
 
 html:
-	npx pressrun dist
+	npx pressrun public
+
+netlifycms:
+	cp -r cms public/admin
 
 serve:
-	npx serve dist
+	npx serve public
