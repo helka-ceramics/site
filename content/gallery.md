@@ -28,4 +28,4 @@ mobilePictures:
   - description: ""
     image: /images/daniel-faro_DTS_7S0A5064_highres_OD.jpg
 ---
-HELKA | CERAMIC PIECES MADE BY LISA KOSAK AT [STUDIO ARGILE](https://www.studioargile.com/) | WARTHESTRASSE 68 | 12051 | BERLIN | MAIL: [HELKACERAMICS@GMAIL.COM](<MAILTO: HELKACERAMICS@GMAIL.COM>) | [INSTAGRAM](https://www.instagram.com/helkagram) | IMPRINT
+HELKA | CERAMIC PIECES MADE BY LISA KOSAK AT [STUDIO ARGILE](https://www.studioargile.com/) | WARTHESTRASSE 68 | 12051 | BERLIN | MAIL: [HELKACERAMICS@GMAIL.COM](mailto:HELKACERAMICS@GMAIL.COM) | [INSTAGRAM](https://www.instagram.com/helkagram) | IMPRINT
