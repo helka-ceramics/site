@@ -16,7 +16,7 @@
   "devDependencies": {
     "fast-glob": "^3.2.2",
     "front-matter": "^4.0.2",
-    "marked": "^1.1.0",
+    "marked": "^4.0.10",
     "parcel": "^2.0.0-nightly.284",
     "pressrun": "^0.2.0",
     "serve": "^11.3.2",
