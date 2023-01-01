@@ -17,7 +17,7 @@
     "fast-glob": "^3.2.2",
     "front-matter": "^4.0.2",
     "marked": "^1.1.0",
-    "parcel": "^2.0.0-nightly.284",
+    "parcel": "^2.8.2",
     "pressrun": "^0.2.0",
     "serve": "^11.3.2",
     "sharp": "^0.25.3"
